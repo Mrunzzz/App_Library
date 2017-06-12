@@ -28,5 +28,5 @@ public class MainActivity extends AppCompatActivity {
                 Fragment2.class, null);
 
     }
-    
+
 }

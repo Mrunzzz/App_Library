@@ -37,7 +37,7 @@ public class Fragment3 extends Fragment {
                 Fragment4 fragment4 = new Fragment4();
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.layout, fragment4);
-                ft.addToBackStack("hre");
+                ft.addToBackStack(null);
                 ft.commit();
             }
         });
