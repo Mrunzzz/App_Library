@@ -19,6 +19,7 @@ import com.example.android.pracapp2.data.Books;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -74,8 +75,12 @@ public class Fragment2 extends Fragment {
                                 .build();
 
                 SearchBookClient client =  retrofit.create(SearchBookClient.class);
+                HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+// set your desired log level
+                logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+                httpClient.addInterceptor(logging);
 
-                Call<List<Books>> calls=client.searchBooks(searchKey);
+                Call<List<Books>> calls=client.searchBooks("json",searchKey);
 
                 calls.enqueue(new Callback<List<Books>>() {
                     @Override

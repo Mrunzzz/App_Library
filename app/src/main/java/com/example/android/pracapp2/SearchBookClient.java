@@ -14,8 +14,8 @@ import retrofit2.http.Query;
 
 public interface SearchBookClient {
 
-    @GET("/book/")
-    Call<List<Books>> searchBooks(@Query("format=json&search") String key);
+    @GET("book/")
+    Call<List<Books>> searchBooks(@Query("format") String format,@Query("search") String key);
 
 
 }
